@@ -1,0 +1,14 @@
+def binary_search(array, element, mini=0, maxi=None):
+    maxi = len(array) - 1 if maxi is None else maxi
+    if mini <= maxi:
+        mid = (mini+maxi)/2
+        if array[mid] == element:
+            return mid
+        elif array[mid] > element:
+            return binary_search(array, element, mini, mid)
+        else:
+            return binary_search(array, element, mid, maxi)
+    return -1
+
+A = [1, 2, 3, 4, 5]
+print binary_search(A, 4)
